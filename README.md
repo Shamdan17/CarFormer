@@ -7,7 +7,8 @@ The choice of representation plays a key role in self-driving. Bird’s eye view
 
 ---
 
-<!-- ## 🚗 Demo  -->
+## 🚗 Demo
+TODO
 
 ## Evaluation Results 
 
@@ -25,7 +26,7 @@ The choice of representation plays a key role in self-driving. Bird’s eye view
 
 ## 🎫 License
 
-This project is released under the [Apache 2.0 license](LICENSE). 
+This project is released under the [MIT license](LICENSE). 
 
 ## 🖊️ Citation
 
