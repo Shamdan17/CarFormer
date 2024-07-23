@@ -36,10 +36,13 @@ This project is released under the [MIT license](LICENSE).
 If you find this project useful in your research, or if you reuse the code for other purposes, please consider citing:
 
 ```BibTeX
-@article{hamdan2024carformer,
-  title={CarFormer: Self-Driving with Learned Object-Centric Representations},
-  author={Hamdan, Shadi and Guney, Fatma},
-  journal={TODO},
-  year={2024}
+@misc{hamdan2024carformer,
+      title={CarFormer: Self-Driving with Learned Object-Centric Representations}, 
+      author={Shadi Hamdan and Fatma Güney},
+      year={2024},
+      eprint={2407.15843},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.15843}, 
 }
 ```
