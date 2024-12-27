@@ -1,0 +1,17 @@
+# @package training
+defaults: 
+  - defaultbev
+  - override encoder_backbone: savi_encoder
+  - _self_
+
+bev:
+  bevslots: 
+    name: bevslots
+bev_crop: center
+bev_crop_size: 192
+bev_size: 192
+object_level: true
+use_slots: true
+tokenized_state: false
+use_past_horizon_states: true
+past_horizon: 2

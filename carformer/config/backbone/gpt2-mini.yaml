@@ -1,0 +1,7 @@
+defaults: 
+  - gpt2
+n_ctx: 1024
+n_embd: 256
+n_head: 16
+n_layer: 4
+n_positions: 2048

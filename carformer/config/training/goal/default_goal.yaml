@@ -1,0 +1,3 @@
+# @package training
+goal_conditioning_type: local
+goal_continuous: True

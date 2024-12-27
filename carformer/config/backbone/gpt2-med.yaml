@@ -1,0 +1,9 @@
+defaults: 
+  - gpt2
+n_ctx: 1024
+n_embd: 768
+n_head: 12
+n_layer: 6
+n_positions: 1024
+init_from_lm_ckp: true
+init_name_or_path: distilgpt2

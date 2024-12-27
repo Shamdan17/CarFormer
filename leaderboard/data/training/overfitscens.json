@@ -1,0 +1,44 @@
+{
+    "available_scenarios": [
+        {
+            "Town04": [
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario2"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario3"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario4"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario5"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario6"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario7"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario8"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario9"
+                },
+                {
+                    "available_event_configurations": [],
+                    "scenario_type": "Scenario10"
+                }
+            ]
+        }
+    ]
+}

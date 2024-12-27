@@ -1,0 +1,15 @@
+# @package _global_
+
+backbone:
+  use_block_attn: true
+
+training: 
+  block_attn: true
+  block_attn_token_type_ids:
+    - 4 # Goal
+    - 1 # BEV 
+    - 0 # State
+  hacky_block_attn_for_rebuttal: true
+  hacky_types: 
+  - combinestatebev
+  - combinegoalstatebev

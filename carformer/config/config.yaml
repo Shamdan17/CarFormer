@@ -1,0 +1,64 @@
+defaults: 
+  - user: shadi
+  - backbone: gpt2-med
+  - training: quantized
+  - hyperparams: default
+  - dataset: plantrep
+  - logging: wandb
+  - _self_
+
+hydra:
+  run:
+    dir: checkpoints/${expname}/${sanitize:'${hydra.job.override_dirname}_data=${dataset.dataset_path_rel}_bev=${training.bev_type}'}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    chdir: False
+    config:
+      override_dirname:
+        exclude_keys:
+          - expname
+          - training/bev
+          - num_workers
+          - dataset.dataset_path_rel
+          - user
+          - preload_in_memory
+          - augmentable_preloader
+          - preload
+          - visualize
+          - amp
+          - multi_gpu_strategy
+          - user.dataset_dir
+          - cpu
+          - gpus
+        kv_sep: '='
+        item_sep: '_'
+
+seed: 1234
+debug: False
+visualize: True
+visualize_interval: 1
+overfit: 0
+cpu: False
+gpus: 1
+multi_gpu_strategy: ddp
+amp: True
+num_workers: 20
+early_stopping: False
+early_stopping_patience: 5
+early_stopping_metric: action_classification_loss
+
+save_every: 10
+start_saving_epoch: 80
+
+expname: TRAINING
+wandb_name: training_PlanT_${hydra:job.override_dirname}
+wandb_tag: 
+save_dir: ${hydra:run.dir}
+
+data_dir: ${user.dataset_dir}/${dataset.dataset_path_rel} # Path to the data directory and name of data folder
+preload: True
+preload_in_memory: True
+augmentable_preloader: True
+cache_dir: ${user.working_dir}/.cache/
+wipe_cache: False
+
+use_deepspeed: False

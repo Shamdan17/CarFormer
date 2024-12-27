@@ -1,0 +1,3 @@
+# @package _global_
+training:
+  augment_data: True

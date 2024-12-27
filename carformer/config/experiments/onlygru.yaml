@@ -1,0 +1,14 @@
+# @package _global_
+training:
+  loss_params:
+    default:
+      classification: 0
+    action:
+      classification: 0
+      reconstruction: 0
+      softf1: 0
+      gru_reconstruction: 1
+    state:
+      classification: 0
+      forecast: 1
+    bev: {} # Nothing

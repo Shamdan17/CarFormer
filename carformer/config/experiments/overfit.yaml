@@ -1,0 +1,22 @@
+# @package _global_
+
+hydra:
+  run:
+    dir: ./tmp_debug
+
+overfit: 1
+
+wandb_tag: overfit
+
+training:
+  max_instances: ${eval:${hyperparams.batch_size} * 10}
+  splits: 
+    train: val
+
+dataset:
+  subsample_ratio: 1.0 # Since we are already using max_instances, we don't need to subsample.
+
+backbone:
+  attn_pdrop: 0.0
+  resid_pdrop: 0.0
+  embd_pdrop: 0.0

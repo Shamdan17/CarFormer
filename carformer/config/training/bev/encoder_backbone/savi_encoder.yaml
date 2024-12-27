@@ -1,0 +1,39 @@
+savi:
+  resolution: 
+    - 192
+    - 192
+  clip_len: 6
+  slot_dict:
+    num_slots: 7
+    slot_size: 128
+    slot_mlp_size: 256
+    num_iterations: 2
+  enc_dict:
+    num_channels: 3
+    enc_channels: [3, 64, 64, 64, 64]
+    enc_ks: 5
+    enc_out_channels: 256
+    enc_norm: ""
+  dec_dict:
+    dec_channels: [128, 64, 64, 64, 64]
+    dec_resolution: [24, 24]
+    dec_ks: 5
+    dec_norm: ""
+    upscale: False
+  pred_dict:
+      pred_type: transformer
+      pred_rnn: True
+      pred_norm_first: True
+      pred_num_layers: 2
+      pred_num_heads: 4
+      pred_ffn_dim: 512
+      pred_sg_every: Null
+  loss_dict:
+      use_post_recon_loss: True
+      recons_loss: mse
+      kld_method: none
+  test_time_context: 2
+  eps: 1e-6
+  checkpoint_path_rel: bin/stosavi_64.pth 
+  checkpoint_path: ${user.working_dir}/${training.encoder_backbone.savi.checkpoint_path_rel}
+  legacy: True

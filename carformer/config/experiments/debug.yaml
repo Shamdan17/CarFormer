@@ -1,0 +1,18 @@
+# @package _global_
+
+expname: debug
+
+debug: True
+gpus: 1
+# num_workers: 0 # If debugging model, don't use num_workers=0. Use datadebug instead.
+
+hyperparams:
+  num_epochs: 2
+
+wandb_tag: debug
+
+logging:
+  project: wanderer-debugging
+  mode: offline
+
+

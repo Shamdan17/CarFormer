@@ -1,0 +1,6 @@
+defaults: 
+- savi_encoder_v2_7slots
+
+savi:
+  slot_dict:
+    num_slots: 30

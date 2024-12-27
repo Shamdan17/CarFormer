@@ -1,0 +1,5 @@
+# @package training
+defaults: 
+- default_goal
+num_goal_classes: 6
+goal_continuous: False

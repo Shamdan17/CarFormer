@@ -1,0 +1,18 @@
+# For usage as a backbone
+encoder_params:
+  object_dims: 6
+  n_object_classes: 4
+  n_embd: ${backbone.n_embd}
+  object_level_max_route_length: ${training.object_level_max_route_length}
+  object_level_max_num_objects: ${training.object_level_max_num_objects}
+  multiple_heads: True
+  object_dropout: 0.25
+  obj_mean: [0.6810691, 2.5060852, 4.0731907, 1.7816833, 0.0, 3.1164536]
+  obj_std: [15.788632, 10.685628, 1.0298458, 0.4806749, 1.1758355, 1.4236461]
+
+model_params:
+  name: 'ObjectEncoder'
+  num_layers: 2
+  decoder_layers: 2
+
+tokenized_state: false

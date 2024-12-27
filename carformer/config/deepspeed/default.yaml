@@ -1,0 +1,4 @@
+# @package _global_
+
+use_deepspeed: true
+train_batch_size: ${deepspeed.train_micro_batch_size_per_gpu}

@@ -1,0 +1,5 @@
+defaults:
+- default_goal
+target_point:
+  name: target_point
+  width: 2

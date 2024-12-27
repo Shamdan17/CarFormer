@@ -1,0 +1,35 @@
+name: CarFormer
+
+SHUFFLE_WEATHER: 0
+DATAGEN: 0
+SAVE_PLUSPLUS: 1
+SAVE_INFRACTIONS: 0
+SAVE_INFRACTIONS_DETAILED: 0
+
+agent: ${user.working_dir}/carla_agent_files/Carformer_agent.py
+
+# model_path needs to be adapted depending on the experiment
+wanderer_model_name: earnest-meadow-438-fixed-objfilter-v2-full-center
+
+model_path: ${experiments.wanderer_model_name}
+epoch_num: 80
+root_path: ${user.working_dir}/Carformer/
+creep_delay: 250
+creep_duration: 10
+use_creep: True
+creep_method: default
+creep_settings:
+  check_bev: True
+  check_lights: True
+  safety_distance_x: 2.0
+  safety_distance_y: 8.0
+
+use_gru_output: False
+enlarge_small_vehicles: False
+unsupervised_enlargement: False
+unsupervised_coloring_only: False
+runnickname: ${eval.BENCHMARKNICKNAME}_GRU+${experiments.use_gru_output}_ep${experiments.epoch_num}
+
+
+agent_root: /home/shadi/research/carformer/checkpoints/${experiments.model_path}
+agent_config: ${experiments.agent_root}/log/

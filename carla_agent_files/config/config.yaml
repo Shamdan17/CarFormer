@@ -1,0 +1,50 @@
+defaults:
+  - user: shadi
+  - experiments: PlanTmedium3x
+  - eval: longest6
+
+save_explainability_viz: False
+
+host: localhost
+port: 2000
+trafficManagerPort: 8000
+trafficManagerSeed: 0
+dataProviderSeed: 0
+debug: 0
+viz: 0
+viz_interval: 1000
+record: ''
+timeout: 600.0
+
+hydra:
+  run:
+    # dir: ${experiments.agent_root}/${save_path}/${eval.BENCHMARKNICKNAME}_GRU+${experiments.use_gru_output}_ep${experiments.epoch_num}_${now:%m-%d_%H}
+    dir: ${experiments.agent_root}/${save_path}/${experiments.runnickname}
+  job:
+    # chdir: True
+    config:
+      override_dirname:
+        exclude_keys:
+          - eval
+          - experiments
+          - experiments.wanderer_model_name
+          - port
+          - trafficManagerPort
+          - experiments.epoch_num
+          - experiments.use_gru_output
+          - user
+        kv_sep: '='
+        item_sep: '_'    
+
+repetitions: 1
+track: MAP
+resume: 1
+save_path: evallogs
+log_save_path: result_logs
+checkpoint_file: results.json
+# checkpoint: ${experiments.agent_root}/${save_path}/${checkpoint_file}
+checkpoint: ${hydra:run.dir}/${checkpoint_file}
+
+DEBUG_CHALLENGE: 0
+CUDA_VISIBLE_DEVICES: 0
+SEED_OFFSET: 0

@@ -1,0 +1,15 @@
+dataset_dir: /data01/data
+working_dir: /home/shadi/research/carformerready
+wandb_entity: shadihamdan
+
+quantizer_map:
+  plant:
+    lights-speed: bin/quantizers_plant/state_quantizer.npy
+    target_point: bin/quantizers_plant/goal_quantizer.npy
+    reward: bin/quantizers_plant/reward_quantizer.npy
+    waypoints: bin/quantizers_plant/action_quantizer.npy
+  legacy:
+    speed: bin/quantizers/state_quantizer.npy
+    lights-speed: bin/newquantizers/state_quantizer.npy
+    acceleration-steer: bin/quantizers/action_quantizer.npy
+    reward: bin/quantizers/reward_quantizer.npy

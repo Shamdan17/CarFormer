@@ -1,0 +1,46 @@
+# For usage as a backbone
+encoder_params:
+  frozen: True
+  checkpoint_path: ${user.working_dir}/bin/vqvae-12x12-pruned.ckpt
+
+data_params:
+  command_folder: full_state
+  data_path: /home/shadi/research/iteration_one/
+  image_folder: bev_binary_npz
+  num_workers: 4
+  patch_size: 192
+  train_batch_size: 32
+  val_batch_size: 128
+exp_params:
+  LR: 0.00025
+  kld_weight: 0.00025
+  manual_seed: 1265
+  scheduler_gamma: 0.0
+  weight_decay: 0.0
+logging_params:
+  name: VQVAE
+  project_name: vq_vae
+  run_name: 24x24
+  save_dir: logs/
+model_params:
+  beta: 0.25
+  embedding_dim: 128
+  hidden_dims:
+  - 64
+  - 64
+  - 128
+  - 256
+  img_size: 192
+  in_channels: 8
+  name: VQVAEPro
+  num_embeddings: 83
+quantization_params:
+  num_embeddings: 83
+  original_checkpoint: /home/shadi/research/rabiavae/logs/stoic-frost-43/checkpoints/epoch=1-step=5487.ckpt
+  original_config: /home/shadi/research/rabiavae/logs/stoic-frost-43/vq_vaepro.yaml
+trainer_params:
+  gpus:
+  - 0
+  max_epochs: 20
+
+tokenized_state: false

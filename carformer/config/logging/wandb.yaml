@@ -1,0 +1,3 @@
+project: wanderer
+entity: ${user.wandb_entity}
+mode: online

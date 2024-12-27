@@ -1,0 +1,21 @@
+defaults:
+- default
+fp16:
+  enabled: true
+  initial_scale_power: 11
+zero_optimization:
+  stage: 3
+  overlap_comm: true
+  contiguous_gradients: true
+  sub_group_size: 1000000000
+  reduce_bucket_size: 500000000
+  stage3_prefetch_bucket_size: 500000000
+  stage3_param_persistence_threshold: 1000000
+  stage3_max_live_parameters: 1000000000
+  stage3_max_reuse_distance: 1000000000
+  stage3_gather_16bit_weights_on_model_save: false
+gradient_accumulation_steps: 1
+gradient_clipping: 1
+steps_per_print: 5
+train_micro_batch_size_per_gpu: 256
+stage3_gather_16bit_weights_on_model_save: true

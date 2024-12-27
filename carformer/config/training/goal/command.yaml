@@ -1,0 +1,4 @@
+defaults:
+- default_command
+command:
+  name: command

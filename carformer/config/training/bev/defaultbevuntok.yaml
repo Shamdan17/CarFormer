@@ -1,0 +1,11 @@
+# @package training
+defaults: 
+  - _self_
+  - encoder_backbone: vqvae
+bev_crop: front
+bev_crop_size: 192
+bev_size: 400
+object_level: false
+pixels_per_meter: 5
+
+tokenized_state: ${training.encoder_backbone.tokenized_state}

@@ -1,0 +1,4 @@
+dataset_path_rel: iteration_four_overfit_v4_nolights_with_random_traffic_plantsupport_v2_nonoise
+plant_data: false
+subsample_ratio: 0.25
+fps: 2

@@ -1,0 +1,9 @@
+# @package _global_
+
+backbone:
+  use_block_attn: true
+
+training: 
+  block_attn: true
+  block_attn_token_type_ids:
+    - 1 # BEV 

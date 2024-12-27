@@ -1,0 +1,21 @@
+# @package training
+defaults: 
+  - defaultbev
+  - override encoder_backbone: object_encoder
+  - _self_
+
+bev:
+  bevobject: 
+    name: bevobject
+bev_crop: center
+bev_crop_size: 400
+bev_size: 400
+object_level_max_route_length: 2
+object_level_max_num_objects: 32
+object_level: true
+tokenized_state: false
+include_agent_in_object_level: false
+split_long_routes: true
+split_threshold: 10
+include_traffic_lights_in_object_level: false
+sort_by_distance: true

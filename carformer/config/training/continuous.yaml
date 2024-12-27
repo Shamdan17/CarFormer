@@ -1,0 +1,58 @@
+defaults:
+- action:
+  - acceleration
+  - steer
+- goal:
+  - highlevel_command
+- reward:
+  - reward
+- bev: 
+  - bevbincont
+- state:
+  - speed
+  - lights
+- _self_
+loss_params:
+  default:
+    reconstruction: 1
+  action: 
+    reconstruction: 1
+  bev:
+    {}
+
+action_type: ${merge_keys:${training.action}}
+state_type: ${merge_keys:${training.state}, ${training.bev}}
+non_bev_state_type: ${merge_keys:${training.state}}
+bev_type: ${merge_keys:${training.bev}}
+goal_type: ${merge_keys:${training.goal}}
+reward_type: ${merge_keys:${training.reward}}
+condition_on_goal: true
+goal_conditioning_type: local
+max_token_types: 4
+quantized: false
+
+# Data settings
+integrate_rewards_to_go: false
+context_length: 1
+frame_stride: 1
+skip_noisy: true
+trim_first_and_last: true
+trim_count: 5
+max_instances: -1
+drop_last: true
+future_horizon: 0
+past_horizon: 0
+use_future_ego_waypoints: ${has_key:${training.action},waypoints}
+use_future_vehicle_forcast: false
+include_noisy_in_action: false
+splits:
+  train: train
+  val: val
+dynamic_batching: true # false, whether or not to crop padding
+weighted_sampling: false # false, whether or not to sample based on class weights
+
+get_weight_reduce_fn: mean
+get_noisy_reduce_fn: last
+
+# Training settings
+split_ratio: 0.8

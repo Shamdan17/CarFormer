@@ -1,0 +1,24 @@
+# @package _global_
+num_slots: 14
+training:
+  loss_params:
+    default:
+      classification: 0
+    action:
+      classification: 1
+      reconstruction: 0.5
+      softf1: 1
+      gru_reconstruction: 1
+    state: 
+      forecast: 1 
+    bev: {} # Nothing
+  use_future_vehicle_forcast: true
+  forecast_steps: 1
+
+  encoder_backbone:
+    savi:
+      slot_dict:
+        num_slots: ${num_slots}
+
+  past_horizon: ${training.encoder_backbone.savi.test_time_context}
+  legacy: ${training.encoder_backbone.savi.legacy}

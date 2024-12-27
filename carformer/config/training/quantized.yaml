@@ -1,0 +1,37 @@
+defaults: 
+  - default
+  - override action:
+    - waypoints
+  - override goal:
+    - target_point
+quantized: true
+reward_quantizer_path_rel: ${resolve_quantizer_path:${training.reward_type},${dataset.plant_data},${user.quantizer_map}}
+state_quantizer_path_rel: ${resolve_quantizer_path:${training.non_bev_state_type},${dataset.plant_data},${user.quantizer_map}}
+action_quantizer_path_rel: ${resolve_quantizer_path:${training.action_type},${dataset.plant_data},${user.quantizer_map}}
+goal_quantizer_path_rel: ${resolve_quantizer_path:${training.goal_type},${dataset.plant_data},${user.quantizer_map}}
+action_quantizer_path: ${user.working_dir}/${training.action_quantizer_path_rel}
+reward_quantizer_path: ${user.working_dir}/${training.reward_quantizer_path_rel}
+state_quantizer_path: ${user.working_dir}/${training.state_quantizer_path_rel}
+goal_quantizer_path: ${user.working_dir}/${training.goal_quantizer_path_rel}
+
+loss_params:
+  default:
+    classification: 0
+  action:
+    classification: 1
+    reconstruction: 0.5
+    softf1: 1
+    gru_reconstruction: 1
+  state:
+    classification: 0
+    forecast: Null
+  bev: {} # Nothing
+# For waypoints
+num_waypoints: 4
+future_horizon: ${training.num_waypoints}
+# Object level forecasting
+use_future_vehicle_forcast: true
+
+# Waypoint settings
+waypoint_gru_head: true
+waypoint_gru_hidden_size: 64

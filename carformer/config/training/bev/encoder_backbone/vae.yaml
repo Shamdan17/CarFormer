@@ -1,0 +1,42 @@
+# For usage as a backbone
+encoder_params:
+  frozen: True
+  checkpoint_path_rel: bin/checkpoint.ckpt
+  checkpoint_path: ${user.working_dir}/${training.encoder_backbone.encoder_params.checkpoint_path_rel}
+
+model_params:
+  name: 'VanillaVAEPro'
+  in_channels: 8
+  latent_dim: 512
+  hidden_dims: [32, 32, 64, 128, 256, 512]
+  paddings: [0, 1, 1, 1, 1, 1, 1]
+  strides: [2, 2, 2, 2, 2, 2, 2]
+  kernel_sizes: [4, 4, 4, 4, 4, 4, 4]
+  output_padding_sizes: [0, 0, 0, 0, 0, 0, 0]
+
+data_params:
+  data_path: "/home/kuavg/datasets/carla/iteration_one"
+  train_batch_size: 128
+  val_batch_size:  256
+  crop_size: 192
+  patch_size: 192
+  num_workers: 10
+  image_folder: "bev_binary"
+  random_crop_chance: 0.3
+
+exp_params:
+  LR: 0.005
+  weight_decay: 0.0
+  scheduler_gamma: 0.95
+  kld_weight: 0.00025
+  manual_seed: 42
+
+trainer_params:
+  gpus: [0, 1]
+  max_epochs: 250
+
+logging_params:
+  save_dir: "logs/"
+  name: "VanillaVAEPro"
+
+tokenized_state: false

@@ -1,0 +1,4 @@
+dataset_path_rel: plant/plant/data/PlanT/
+plant_data: true
+subsample_ratio: 0.25
+fps: 2

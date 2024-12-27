@@ -1,0 +1,5 @@
+waypoints: 
+  name: waypoints
+  width: ${eval:'${training.num_waypoints} * 2'}
+  future_horizon: 4
+  

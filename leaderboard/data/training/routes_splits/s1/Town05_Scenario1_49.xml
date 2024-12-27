@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<routes>
+  <route id="49" town="Town05">
+    <waypoint x="-188.100204" y="-105.544731" z="0.0" pitch="0.0" roll="0.0" yaw="-90.015793" />
+    <waypoint x="-144.415924" y="-138.958939" z="0.0" pitch="0.0" roll="0.0" yaw="0.442551" />
+  </route>
+</routes>

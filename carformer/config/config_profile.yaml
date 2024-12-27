@@ -1,0 +1,57 @@
+defaults: 
+  - user: shadi
+  - backbone: gpt2-med
+  - training: quantized
+  - hyperparams: default
+  - dataset: plant
+  - logging: wandb
+  - experiments: 
+    - bevslots
+    - debug
+  - override training/bev: bevslotsroute
+  - _self_
+
+exp_folder_name: training
+hydra:
+  run:
+    dir: checkpoints/${exp_folder_name}/${expname}/${hydra.job.override_dirname}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    config:
+      override_dirname:
+        exclude_keys:
+          - expname
+        kv_sep: '='
+        item_sep: '_'
+
+seed: 1234
+debug: False
+visualize: false
+visualize_interval: 1
+overfit: 0
+cpu: False
+gpus: 1
+multi_gpu_strategy: dp
+amp: True
+num_workers: 0
+early_stopping: False
+early_stopping_patience: 5
+early_stopping_metric: action_classification_loss
+
+save_every: 4
+
+expname: TRAINING
+wandb_name: training_PlanT_${hydra:job.override_dirname}
+wandb_tag: 
+save_dir: ${hydra:run.dir}
+
+data_dir: ${user.dataset_dir}/plant/backup/plantppv4 # Path to the data directory and name of data folder
+preload: true
+preload_in_memory: false
+augmentable_preloader: false
+cache_dir: ${user.working_dir}/.cache/
+wipe_cache: False
+
+
+hyperparams:
+  batch_size: 64
+  num_epochs: 40
